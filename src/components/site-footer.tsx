@@ -54,7 +54,7 @@ export function SiteFooter() {
               <a
                 key={platform.name}
                 href={platform.link}
-                className="group relative grid size-12 place-items-center rounded-2xl border-2 border-white/5 bg-[#140D26] text-[#8C93B0] transition-all duration-300 hover:border-[#F47174]/60 hover:bg-[#F47174]/10 hover:text-white hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(244,113,116,0.2)]"
+                className="group relative grid size-12 place-items-center rounded-2xl border-2 border-white/5 bg-[#140D26] text-[#8C93B0] transition-all duration-300 hover:border-[#FF355E]/60 hover:bg-[#FF355E]/10 hover:text-white hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,53,94,0.2)]"
                 title={platform.name}
                 aria-label={platform.name}
               >

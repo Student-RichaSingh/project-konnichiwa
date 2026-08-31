@@ -40,7 +40,8 @@ export default async function Home() {
 
   return (
     <div
-      className="relative overflow-x-clip min-h-screen bg-[#0f0f0f] bg-cover bg-center bg-no-repeat bg-fixed"
+      className="relative overflow-x-clip min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ color: "zinc-950" }}
     >
       {/* Global Noise Texture Overlay */}
       <NoiseTexture
