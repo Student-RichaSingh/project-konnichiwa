@@ -529,14 +529,16 @@ export function AdminDashboard() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen w-full flex items-center justify-center bg-[#0f0f0f] text-white/60 text-xs font-mono">
-        <FiLoader className="size-4 animate-spin mr-2" /> Authenticating...
+      <div className="min-h-screen w-full flex flex-col items-center justify-center bg-[#090B14] text-slate-300 font-sans gap-3">
+        <FiLoader className="size-8 animate-spin text-[#F47174]" />
+        <span className="text-sm font-semibold tracking-wide text-white">Authenticating Administrative Access...</span>
+        <span className="text-xs text-slate-500 font-mono">PTSC Security Gateway</span>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex bg-[#0f0f0f] text-white font-sans text-xs">
+    <div data-admin-panel="true" className="min-h-screen flex bg-[#090B14] text-slate-100 font-sans selection:bg-[#F47174]/30">
       {/* Toast Notification Banner */}
       {toastMessage && (
         <div className="fixed top-5 right-5 z-50 px-4 py-2.5 bg-white text-black text-xs font-mono font-semibold rounded-lg border border-white/20 shadow-2xl flex items-center gap-2 animate-bounce">

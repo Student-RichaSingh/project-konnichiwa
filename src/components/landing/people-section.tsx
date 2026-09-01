@@ -194,12 +194,15 @@ export function PeopleSection() {
                 key={opt.value}
                 onClick={() => setSelectedBatch(opt.value)}
                 className={`relative pb-4 -mb-[1px] text-xs font-black uppercase tracking-widest transition-colors duration-300 ${
-                  selectedBatch === opt.value
+                  selectedBatch === batch
                     ? "text-white"
                     : "text-[#8C93B0] hover:text-white/80"
                 }`}
               >
-                {opt.label}
+                {batch}
+                {selectedBatch === batch && (
+                  <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#F47174] shadow-[0_0_15px_rgba(244,113,116,0.6)] rounded-t-full" />
+                )}
               </button>
             ))}
           </div>

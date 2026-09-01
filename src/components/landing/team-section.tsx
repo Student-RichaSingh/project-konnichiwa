@@ -158,7 +158,7 @@ export function TeamSection() {
     >
       {/* Background elements */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[#FF355E]/10 blur-[150px] rounded-full" />
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[#F47174]/10 blur-[150px] rounded-full" />
         <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-[#00F0FF]/10 blur-[150px] rounded-full" />
         <div className="mx-auto h-full max-w-7xl px-6 lg:px-12 grid grid-cols-5 border-x border-dashed border-white/5">
           <div className="border-r border-dashed border-white/5 h-full" />
@@ -171,12 +171,12 @@ export function TeamSection() {
       <div className="relative z-10 flex flex-col gap-12">
         {/* Section Header with tighter spacing */}
         <div className="mx-auto max-w-6xl px-6 text-center">
-          <p className="text-xs font-mono font-bold text-[#FF355E] uppercase tracking-widest mb-1.5">
+          <p className="text-xs font-mono font-bold text-[#F47174] uppercase tracking-widest mb-1.5">
             Character Select
           </p>
           <h2 className="mx-auto max-w-4xl text-2xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl font-sans leading-tight">
             Meet the heroes behind the{" "}
-            <Highlighter action="underline" color="#FF355E" strokeWidth={4}>
+            <Highlighter action="underline" color="#F47174" strokeWidth={4}>
               <span className="font-serif italic font-normal text-white">
                 magic happen
               </span>
@@ -211,7 +211,7 @@ export function TeamSection() {
                 className="relative rounded-2xl flex-shrink-0 w-72"
               >
                 {/* Anime Sticker/Badge overlay */}
-                <div className="absolute -top-3 -right-3 z-20 size-10 rounded-4xl bg-[#FF355E] text-white flex items-center justify-center font-black text-lg shadow-lg border-2 border-[#1A1033] transform rotate-12 group-hover:scale-110 transition-transform">
+                <div className="absolute -top-3 -right-3 z-20 size-10 rounded-4xl bg-[#F47174] text-white flex items-center justify-center font-black text-lg shadow-lg border-2 border-[#1A1033] transform rotate-12 group-hover:scale-110 transition-transform">
                   3rd
                 </div>
 
@@ -237,7 +237,7 @@ export function TeamSection() {
                 </div>
 
                 {/* Floating Bottom Social Tag (adjusted distance to avoid cut-off) */}
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 rounded-full bg-[#1A1033]/90 backdrop-blur-xl border-2 border-white/15 px-5 py-2 text-center transition-all duration-300 group-hover:border-[#FF355E]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] whitespace-nowrap">
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 rounded-full bg-[#1A1033]/90 backdrop-blur-xl border-2 border-white/15 px-5 py-2 text-center transition-all duration-300 group-hover:border-[#F47174]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] whitespace-nowrap">
                   <div className="flex items-center justify-center gap-3.5 text-white">
                     {member.github && (
                       <a

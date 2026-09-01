@@ -78,12 +78,12 @@ export function GallerySection() {
           <div className="relative z-10 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-24  order-2 lg:order-1">
             {/* Section label */}
             <div className="relative z-10 mb-8">
-              <p className="text-xs font-mono font-bold text-[#FF355E] uppercase tracking-widest mb-3">
+              <p className="text-xs font-mono font-bold text-[#F47174] uppercase tracking-widest mb-3">
                 Moments in Time
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white font-sans leading-tight">
                 Our Club{" "}
-                <Highlighter action="underline" color="#FF355E" strokeWidth={4}>
+                <Highlighter action="underline" color="#F47174" strokeWidth={4}>
                   <span className="text-white font-serif italic font-normal">Gallery</span>
                 </Highlighter>
               </h2>
@@ -101,7 +101,7 @@ export function GallerySection() {
                 >
                   {/* Counter */}
                   <div className="flex items-center gap-3 mb-5">
-                    <span className="text-4xl font-black font-mono text-[#FF355E]">
+                    <span className="text-4xl font-black font-mono text-[#F47174]">
                       {String(activeIndex + 1).padStart(2, "0")}
                     </span>
                     <span className="text-sm font-mono text-white/30">
@@ -136,7 +136,7 @@ export function GallerySection() {
                     width: idx === activeIndex ? "40px" : "12px",
                     backgroundColor:
                       idx === activeIndex
-                        ? "#FF355E"
+                        ? "#F47174"
                         : "rgba(255, 255, 255, 0.15)",
                   }}
                 />

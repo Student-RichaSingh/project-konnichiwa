@@ -233,7 +233,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen w-full bg-[#0f0f0f] flex items-center justify-center text-white/50 text-xs font-mono">
+      <div className="min-h-screen w-full bg-[#0B0D19] flex items-center justify-center text-white/50 text-xs font-mono">
         <FiLoader className="size-6 animate-spin text-[#F47174] mr-3" /> Loading profile...
       </div>
     );
@@ -242,18 +242,8 @@ export default function ProfilePage() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen w-full bg-[#0f0f0f] text-white pt-24 pb-16 font-sans selection:bg-[#F47174]/30 relative">
-      {/* Vertical Dashed Guidelines Overlay matching /people */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        <div className="mx-auto h-full max-w-7xl px-6 lg:px-12 grid grid-cols-5 border-x border-dashed border-white/5">
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 font-sans relative z-10">
+    <div className="min-h-screen w-full bg-[#0B0D19] text-white pt-24 pb-16 font-sans selection:bg-[#F47174]/30">
+      <div className="max-w-6xl mx-auto px-6 font-sans">
         
         {/* Hidden File Picker Input */}
         <input
@@ -447,135 +437,121 @@ export default function ProfilePage() {
                 </div>
 
                 {editing ? (
-                  <Form {...profileForm}>
-                    <form onSubmit={profileForm.handleSubmit(handleUpdate)} className="space-y-4 font-sans">
-                      <div className="grid grid-cols-2 gap-4">
-                        <FormField
-                          control={profileForm.control}
-                          name="firstName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>First Name</FormLabel>
-                              <FormControl>
-                                <Input disabled={saving} {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={profileForm.control}
-                          name="lastName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Last Name</FormLabel>
-                              <FormControl>
-                                <Input disabled={saving} {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                  <form onSubmit={handleUpdate} className="space-y-4 font-sans">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                          First Name
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                          className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <FormField
-                          control={profileForm.control}
-                          name="username"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Username</FormLabel>
-                              <FormControl>
-                                <Input disabled={saving} {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={profileForm.control}
-                          name="mobile"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Mobile Number</FormLabel>
-                              <FormControl>
-                                <Input type="tel" disabled={saving} {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                      <div>
+                        <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                          Last Name
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                          className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
+                    </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <FormField
-                          control={profileForm.control}
-                          name="rollNo"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Roll Number</FormLabel>
-                              <FormControl>
-                                <Input placeholder="24305" disabled={saving} {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={profileForm.control}
-                          name="imageSrc"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Profile Photo URL</FormLabel>
-                              <FormControl>
-                                <Input type="url" placeholder="https://example.com/avatar.jpg" disabled={saving} {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                          Username
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
+                      <div>
+                        <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                          Mobile Number
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={mobile}
+                          onChange={(e) => setMobile(e.target.value)}
+                          className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
+                        />
+                      </div>
+                    </div>
 
-                      <FormField
-                        control={profileForm.control}
-                        name="password"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>New Password (leave blank to keep current)</FormLabel>
-                            <FormControl>
-                              <Input
-                                type="password"
-                                placeholder="••••••••"
-                                disabled={saving}
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                          Roll Number
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="24305"
+                          value={rollNo}
+                          onChange={(e) => setRollNo(e.target.value)}
+                          className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                          Profile Photo URL
+                        </label>
+                        <input
+                          type="url"
+                          placeholder="https://example.com/avatar.jpg"
+                          value={imageSrc}
+                          onChange={(e) => setImageSrc(e.target.value)}
+                          className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
+                        New Password (leave blank to keep current)
+                      </label>
+                      <input
+                        type="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                       />
+                    </div>
 
-                      <div className="flex items-center gap-3 pt-2">
-                        <button
-                          type="submit"
-                          disabled={saving}
-                          className="px-5 py-2.5 rounded-xl bg-[#F47174] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#FF4D70] transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer"
-                        >
-                          {saving ? <FiLoader className="size-4 animate-spin" /> : "Save Changes"}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setEditing(false);
-                            setError(null);
-                          }}
-                          className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 text-xs font-bold uppercase hover:bg-white/10 transition-colors cursor-pointer"
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </form>
-                  </Form>
+                    <div className="flex items-center gap-3 pt-2">
+                      <button
+                        type="submit"
+                        disabled={saving}
+                        className="px-5 py-2.5 rounded-xl bg-[#F47174] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#FF4D70] transition-colors disabled:opacity-50 flex items-center gap-2"
+                      >
+                        {saving ? <FiLoader className="size-4 animate-spin" /> : "Save Changes"}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEditing(false);
+                          setError(null);
+                        }}
+                        className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 text-xs font-bold uppercase hover:bg-white/10 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-[#0f0f0f] p-6 rounded-2xl border border-white/10 font-sans text-xs">
                     <div>

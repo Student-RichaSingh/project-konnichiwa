@@ -7,9 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import type { EventItem } from "@/lib/event-status";
-import { getEventDynamicStatus } from "@/lib/event-status";
-import { EventCoverImage } from "@/components/events/event-cover-image";
+import type { EventItem } from "@/lib/events";
 import Link from "next/link";
 
 interface Card5Props {
@@ -29,20 +27,28 @@ const Card5 = ({ event }: Card5Props) => {
     : "TBA";
 
   return (
-    <Card className="group relative border-2 border-white/10 bg-[#141414]/90 backdrop-blur-md rounded-3xl overflow-hidden pt-0 shadow-lg shadow-black/40 hover:shadow-2xl hover:shadow-[#F47174]/20 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between h-full">
+    <Card className="group relative border-2 border-white/10 bg-[#140D26]/80 backdrop-blur-md rounded-3xl overflow-hidden pt-0 shadow-lg shadow-black/40 hover:shadow-2xl hover:shadow-[#F47174]/20 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between h-full">
       {/* Decorative gradient orb behind content */}
       <div className="absolute -right-20 -top-20 size-64 rounded-full bg-gradient-to-br from-[#F47174]/20 to-[#00F0FF]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
       <div className="relative z-10">
         <CardContent className="px-0 relative overflow-hidden m-2 rounded-2xl">
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-            <EventCoverImage
-              src={event.coverImageUrl}
-              alt={event.title}
-              title={event.title}
-              variant="card"
-              className="transition-transform duration-700 group-hover:scale-110"
-            />
+            {event.coverImageUrl ? (
+              <img
+                src={event.coverImageUrl}
+                alt={event.title}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            ) : (
+              <div className="h-full w-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-[#1A1033] to-[#0B0D19]">
+                <div className="grid size-16 place-items-center rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-[0_0_15px_rgba(244,113,116,0.3)]">
+                  <span className="text-[#F47174] font-bold tracking-widest">
+                    PTSC
+                  </span>
+                </div>
+              </div>
+            )}
 
             {/* Playful Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent opacity-80" />
@@ -50,21 +56,8 @@ const Card5 = ({ event }: Card5Props) => {
 
           {/* Top Badges */}
           <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none z-20">
-            <span
-              className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest border backdrop-blur-md flex items-center gap-1.5 ${
-                isLive
-                  ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)]"
-                  : isPast
-                  ? "bg-black/60 border-white/20 text-slate-300 shadow-md"
-                  : timing.isRegistrationClosed
-                  ? "bg-red-500/20 border-red-500/30 text-red-300 shadow-sm"
-                  : "bg-gradient-to-r from-[#F47174] to-[#FF4D70] text-white shadow-[0_4px_10px_rgba(244,113,116,0.4)] border-white/20"
-              }`}
-            >
-              {isLive && (
-                <span className="size-1.5 rounded-full bg-emerald-400 animate-ping" />
-              )}
-              {timing.isRegistrationClosed && !isPast ? "Reg Closed" : label}
+            <span className="rounded-full bg-gradient-to-r from-[#F47174] to-[#FF4D70] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-[0_4px_10px_rgba(244,113,116,0.4)] border border-white/20 backdrop-blur-md">
+              {event.status || "Upcoming"}
             </span>
             <span className="rounded-full bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1 text-xs font-bold font-mono text-white flex items-center gap-1.5 shadow-lg">
               {formattedDate}

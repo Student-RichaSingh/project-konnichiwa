@@ -126,7 +126,7 @@ export function MyAchievementsSection({
               placeholder="e.g. SIH 2024 / GSoC '25"
               value={newAchEvent}
               onChange={(e) => setNewAchEvent(e.target.value)}
-              className="w-full bg-[#0f0f0f] border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:outline-none focus:border-[#F47174]"
+              className="w-full bg-[#121528] border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:outline-none focus:border-[#F47174]"
             />
           </div>
 
@@ -139,7 +139,7 @@ export function MyAchievementsSection({
               placeholder="e.g. Winner / @Google / Candidate Master"
               value={newAchStatus}
               onChange={(e) => setNewAchStatus(e.target.value)}
-              className="w-full bg-[#0f0f0f] border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:outline-none focus:border-[#F47174]"
+              className="w-full bg-[#121528] border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:outline-none focus:border-[#F47174]"
             />
           </div>
 
@@ -150,7 +150,7 @@ export function MyAchievementsSection({
             <select
               value={newAchCategory}
               onChange={(e) => setNewAchCategory(e.target.value)}
-              className="w-full bg-[#0f0f0f] border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:outline-none focus:border-[#F47174]"
+              className="w-full bg-[#121528] border border-white/10 rounded-xl py-2 px-3 text-xs text-white focus:outline-none focus:border-[#F47174]"
             >
               {CATEGORY_OPTIONS.map((cat) => (
                 <option key={cat} value={cat}>

@@ -53,102 +53,66 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0f0f0f] text-slate-200 pt-24 pb-20 selection:bg-[#FF355E]/30 font-sans">
-      {/* Vertical Dashed Guidelines Overlay matching /people */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        <div className="mx-auto h-full max-w-7xl px-6 lg:px-12 grid grid-cols-5 border-x border-dashed border-white/5">
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#0B0D19] text-white pt-24 pb-16 selection:bg-[#F47174]/30">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-8">
+        {/* Back Link */}
+        <Link
+          href="/events"
+          className="inline-flex items-center gap-2 text-xs font-mono text-[#8C93B0] hover:text-white mb-8 transition-colors"
+        >
+          <FiArrowLeft className="size-4" /> Back to Events
+        </Link>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 pt-6">
-        {/* Navigation Breadcrumb */}
-        <div className="mb-6 flex items-center justify-between">
-          <Link
-            href="/events"
-            className="inline-flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition-colors bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-lg"
-          >
-            <FiArrowLeft className="size-3.5" /> Back to All Events
-          </Link>
+        {/* Cover Image Banner */}
+        {event.coverImageUrl && (
+          <div className="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
+            <Image
+              src={event.coverImageUrl}
+              alt={event.title}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 1024px"
+            />
+          </div>
+        )}
 
-          <button
-            onClick={handleCopyLink}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg transition-all"
-          >
-            {copied ? (
-              <>
-                <FiCheck className="size-3.5 text-emerald-400" /> Link Copied!
-              </>
-            ) : (
-              <>
-                <FiShare2 className="size-3.5" /> Share Event
-              </>
-            )}
-          </button>
-        </div>
-
-        {/* Hero Artwork Banner */}
-        <div className="relative w-full h-64 sm:h-96 md:h-[420px] rounded-3xl overflow-hidden mb-10 border border-white/15 shadow-2xl bg-[#070913] flex items-center justify-center">
-          <EventCoverImage
-            src={event.coverImageUrl}
-            alt={event.title}
-            title={event.title}
-            variant="hero"
-            priority
-            sizes="(max-width: 1200px) 100vw, 1200px"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#090B14] via-[#090B14]/40 to-transparent pointer-events-none" />
-
-          {/* Floating Badges */}
-          <div className="absolute top-5 left-5 right-5 flex flex-wrap items-center justify-between gap-3 pointer-events-none">
-            <div className="flex items-center gap-2">
-              <span
-                className={`px-3.5 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-1.5 ${
-                  isLive
-                    ? "bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.3)] backdrop-blur-md"
-                    : isPast
-                    ? "bg-slate-900/90 border border-white/20 text-slate-300 backdrop-blur-md"
-                    : "bg-[#FF355E] text-white"
-                }`}
-              >
-                {isLive && (
-                  <span className="size-1.5 rounded-full bg-emerald-400 animate-ping" />
-                )}
-                {label}
-              </span>
-
-              {isOnline ? (
-                <span className="px-3 py-1 rounded-full bg-[#090B14]/90 backdrop-blur-md border border-cyan-500/30 text-cyan-300 text-xs font-medium flex items-center gap-1.5">
-                  <FiGlobe className="size-3" /> Online {event.platform ? `(${event.platform})` : ""}
-                </span>
-              ) : (
-                <span className="px-3 py-1 rounded-full bg-[#090B14]/90 backdrop-blur-md border border-white/20 text-slate-200 text-xs font-medium flex items-center gap-1.5">
-                  <FiMapPin className="size-3 text-[#FF355E]" /> {event.venue || "Campus Offline"}
-                </span>
-              )}
-            </div>
-
-            <span className="px-3 py-1 rounded-full bg-[#090B14]/90 backdrop-blur-md border border-white/20 text-slate-200 text-xs font-medium flex items-center gap-1.5">
-              {event.registrationType === "team" ? (
-                <>
-                  <FiUsers className="size-3 text-blue-400" /> Team ({event.teamMinSize || 2}-{event.teamMaxSize || 4} Members)
-                </>
-              ) : (
-                <>
-                  <FiUser className="size-3 text-emerald-400" /> Solo Participation
-                </>
-              )}
+        {/* Event Header */}
+        <div className="space-y-4 border-b border-white/10 pb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-3 py-1 rounded-md text-xs font-bold font-mono uppercase tracking-wider bg-[#F47174] text-white">
+              {event.status}
+            </span>
+            <span className="px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider bg-white/10 border border-white/10 text-white/80">
+              {event.registrationType === "team"
+                ? `Team (${event.teamMinSize ?? 1}–${event.teamMaxSize ?? 4} Members)`
+                : "Individual"}
             </span>
           </div>
 
-          {/* Floating Hero Title inside banner */}
-          <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
-              {event.title}
-            </h1>
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            {event.title}
+          </h1>
+
+          <div className="flex flex-wrap gap-6 pt-2 text-sm text-[#8C93B0] font-mono">
+            {event.date && (
+              <span className="flex items-center gap-2">
+                <FiCalendar className="size-4 text-[#F47174]" />
+                {new Date(event.date).toLocaleDateString("en-US", {
+                  weekday: "long", year: "numeric", month: "long", day: "numeric",
+                })}
+              </span>
+            )}
+            {event.time && (
+              <span className="flex items-center gap-2">
+                <FiClock className="size-4 text-[#F47174]" />
+                {event.time}
+              </span>
+            )}
+            <span className="flex items-center gap-2">
+              <FiMapPin className="size-4 text-[#F47174]" />
+              KNIT Sultanpur Campus
+            </span>
           </div>
         </div>
 
@@ -239,10 +203,10 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
                       rel="noopener noreferrer"
                       className="p-4 border border-white/10 hover:border-white/25 rounded-2xl bg-[#090B14] transition-all flex items-center justify-between group"
                     >
-                      <span className="text-xs font-semibold text-white group-hover:text-[#FF355E] transition-colors">
-                        {res.label || `Resource Document #${idx + 1}`}
+                      <span className="text-xs font-mono font-medium text-white group-hover:text-[#F47174] transition-colors">
+                        {res.label || `Resource #${idx + 1}`}
                       </span>
-                      <FiExternalLink className="size-3.5 text-slate-500 group-hover:text-white transition-colors" />
+                      <FiLink className="size-3.5 text-white/40 group-hover:text-[#F47174] transition-colors" />
                     </a>
                   ))}
                 </div>
@@ -342,120 +306,39 @@ export function EventDetailContent({ event }: EventDetailContentProps) {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="space-y-3 pt-2">
-                {isPast ? (
-                  <div className="p-4 bg-white/5 border border-white/10 rounded-2xl text-center space-y-1">
-                    <span className="block text-xs font-semibold text-slate-300 uppercase tracking-wide">
-                      Event Concluded
-                    </span>
-                    <p className="text-xs text-slate-500">
-                      This competition has concluded. Check back for upcoming events.
-                    </p>
-                  </div>
-                ) : isRegistrationClosed ? (
-                  <>
-                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-center space-y-1">
-                      <span className="block text-xs font-semibold text-red-400 uppercase tracking-wide">
-                        Registration Closed
-                      </span>
-                      <p className="text-xs text-red-300/80">
-                        The registration deadline for this event has passed.
-                      </p>
-                    </div>
-
-                    {/* Virtual Meeting Join Link */}
-                    {isOnline && event.meetLink && (
-                      <a
-                        href={event.meetLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-cyan-950/60 hover:bg-cyan-900/60 border border-cyan-500/30 text-cyan-300 font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-2"
-                      >
-                        <FiVideo className="size-4 text-cyan-400" />
-                        <span>Join Live Virtual Room</span>
-                      </a>
-                    )}
-
-                    {/* WhatsApp Updates Community */}
-                    {event.whatsappGroupLink && (
-                      <a
-                        href={event.whatsappGroupLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#25D366] font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-2"
-                      >
-                        <FiMessageCircle className="size-4" />
-                        <span>Join Official WhatsApp Group</span>
-                      </a>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      href={`/events/${event.slug || event._id}/register`}
-                      className="w-full py-3.5 px-4 bg-[#FF355E] hover:bg-[#FF4D70] text-white font-semibold text-xs rounded-xl transition-all shadow-lg shadow-[#FF355E]/25 flex items-center justify-center gap-2 text-center"
+              {isUpcoming ? (
+                <div className="space-y-3 pt-2">
+                  {event.googleFormLink ? (
+                    <a
+                      href={event.googleFormLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3 bg-[#F47174] hover:bg-[#FF4D70] text-white font-mono font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-[#F47174]/20 flex items-center justify-center gap-2"
                     >
-                      <span>Register for Event</span>
-                      <FiArrowRight className="size-4" />
-                    </Link>
+                      Register Now <FiExternalLink className="size-4" />
+                    </a>
+                  ) : (
+                    <div className="w-full py-3 bg-[#F47174]/20 border border-[#F47174]/30 text-[#F47174] font-mono font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2">
+                      <FiCheckCircle className="size-4" /> Registration Opening Soon
+                    </div>
+                  )}
 
-                    {event.googleFormLink && (
-                      <a
-                        href={event.googleFormLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-2 text-center"
-                      >
-                        <span>Register via Google Form</span>
-                        <FiExternalLink className="size-3.5 text-slate-400" />
-                      </a>
-                    )}
-
-                    {/* Virtual Meeting Join Link */}
-                    {isOnline && event.meetLink && (
-                      <a
-                        href={event.meetLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-cyan-950/60 hover:bg-cyan-900/60 border border-cyan-500/30 text-cyan-300 font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-2"
-                      >
-                        <FiVideo className="size-4 text-cyan-400" />
-                        <span>Join Live Virtual Room</span>
-                      </a>
-                    )}
-
-                    {/* WhatsApp Updates Community */}
-                    {event.whatsappGroupLink && (
-                      <a
-                        href={event.whatsappGroupLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-3 px-4 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#25D366] font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-2"
-                      >
-                        <FiMessageCircle className="size-4" />
-                        <span>Join Official WhatsApp Group</span>
-                      </a>
-                    )}
-                  </>
-                )}
-              </div>
-
-              {/* Share & Social Buttons */}
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-2">
-                <button
-                  onClick={handleShareWhatsApp}
-                  className="flex-1 py-2 px-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-slate-300 hover:text-white flex items-center justify-center gap-1.5 transition-colors font-medium"
-                >
-                  <FiMessageCircle className="size-3 text-emerald-400" /> WhatsApp
-                </button>
-                <button
-                  onClick={handleCopyLink}
-                  className="flex-1 py-2 px-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-slate-300 hover:text-white flex items-center justify-center gap-1.5 transition-colors font-medium"
-                >
-                  <FiShare2 className="size-3 text-blue-400" /> Copy URL
-                </button>
-              </div>
+                  {event.whatsappGroupLink && (
+                    <a
+                      href={event.whatsappGroupLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 border border-white/15 bg-white/5 hover:bg-white/10 text-white font-mono text-xs rounded-xl transition-all flex items-center justify-center gap-2"
+                    >
+                      Join WhatsApp Group
+                    </a>
+                  )}
+                </div>
+              ) : (
+                <div className="p-3 bg-white/5 border border-white/10 rounded-xl text-center font-mono text-xs text-white/50">
+                  This event has concluded.
+                </div>
+              )}
             </div>
           </div>
         </div>
