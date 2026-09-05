@@ -34,12 +34,12 @@ export function FreelanceSection() {
   return (
     <section
       id="freelance"
-      className="relative bg-transparent py-32 selection:bg-[#F47174]/30 overflow-hidden"
+      className="relative bg-transparent py-32  overflow-hidden"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
-        <div className="absolute top-[10%] left-[20%] w-[350px] h-[350px] rounded-full bg-[#00F0FF]/10 blur-[130px]" />
-        <div className="absolute bottom-[10%] right-[20%] w-[350px] h-[350px] rounded-full bg-[#F47174]/10 blur-[130px]" />
+        <div className="absolute top-[10%] left-[20%] w-[350px] h-[350px] rounded-full bg-[#0f0f0f] blur-[130px]" />
+     
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
@@ -63,7 +63,7 @@ export function FreelanceSection() {
           {FREELANCE_PROJECTS.map((p) => (
             <div
               key={p.id}
-              className="group relative rounded-[2rem] border-2 border-white/10 bg-[#140D26]/60 p-8 transition-all duration-500 hover:border-[#00F0FF]/50 hover:-translate-y-2 flex flex-col justify-between"
+              className="group relative rounded-[2rem] border-2 border-white/10 bg-[#0f0f0f] p-8 transition-all duration-500 hover:scale-[1.05] flex flex-col justify-between"
             >
               <div>
                 <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-[#00F0FF] mb-6">

@@ -157,16 +157,7 @@ export function TeamSection() {
       className="relative bg-transparent py-24 border-b border-white/5 overflow-hidden"
     >
       {/* Background elements */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[#F47174]/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-[#00F0FF]/10 blur-[150px] rounded-full" />
-        <div className="mx-auto h-full max-w-7xl px-6 lg:px-12 grid grid-cols-5 border-x border-dashed border-white/5">
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-          <div className="border-r border-dashed border-white/5 h-full" />
-        </div>
-      </div>
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-40"></div>
 
       <div className="relative z-10 flex flex-col gap-12">
         {/* Section Header with tighter spacing */}
@@ -211,8 +202,8 @@ export function TeamSection() {
                 className="relative rounded-2xl flex-shrink-0 w-72"
               >
                 {/* Anime Sticker/Badge overlay */}
-                <div className="absolute -top-3 -right-3 z-20 size-10 rounded-4xl bg-[#F47174] text-white flex items-center justify-center font-black text-lg shadow-lg border-2 border-[#1A1033] transform rotate-12 group-hover:scale-110 transition-transform">
-                  3rd
+                <div className="absolute -top-3 -right-3 z-20 size-10 rounded-4xl bg-[#0f0f0f] text-white flex items-center justify-center font-black text-lg shadow-lg border-2 border-[#1A1033] transform rotate-12 group-hover:scale-110 transition-transform">
+                  👾
                 </div>
 
                 <div className="relative aspect-[4/5] w-full overflow-visible rounded-2xl bg-[#090A14] border border-white/10">
@@ -237,7 +228,7 @@ export function TeamSection() {
                 </div>
 
                 {/* Floating Bottom Social Tag (adjusted distance to avoid cut-off) */}
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 rounded-full bg-[#1A1033]/90 backdrop-blur-xl border-2 border-white/15 px-5 py-2 text-center transition-all duration-300 group-hover:border-[#F47174]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] whitespace-nowrap">
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 rounded-full bg-[#0f0f0f] backdrop-blur-xl border-2 border-white/15 px-5 py-2 text-center transition-all duration-300 group-hover:border-[#F47174]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] whitespace-nowrap">
                   <div className="flex items-center justify-center gap-3.5 text-white">
                     {member.github && (
                       <a

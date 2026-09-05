@@ -49,20 +49,16 @@ export function ContactSection() {
   const loading = form.formState.isSubmitting;
 
   return (
-    <section id="contact" className="relative bg-transparent py-32 selection:bg-[#F47174]/30 overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-30">
-        <div className="absolute top-[20%] right-[10%] w-[350px] h-[350px] rounded-full bg-[#00F0FF]/15 blur-[120px]" />
-        <div className="absolute bottom-[20%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#F47174]/15 blur-[120px]" />
-      </div>
-
+    <section
+      id="contact"
+      className="relative  py-32 overflow-hidden"
+    >
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
-          
           {/* Info Side */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <p className="text-xs font-mono font-bold text-[#F47174] uppercase tracking-widest mb-3">
+              <p className="text-xs font-mono  font-bold text-[#F47174] uppercase tracking-widest mb-3">
                 Mission Control
               </p>
               <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white font-sans leading-tight">
@@ -72,19 +68,25 @@ export function ContactSection() {
                 </Highlighter>
               </h2>
               <p className="mt-4 text-base text-[#8C93B0] leading-relaxed">
-                Have questions, projects, or partnership proposals? Drop us a line and let&apos;s build something epic together.
+                Have questions, projects, or partnership proposals? Drop us a
+                line and let's build something epic together.
               </p>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="size-12 rounded-2xl bg-[#140D26] border border-white/10 flex items-center justify-center text-[#F47174]">
+                <div className="size-12 rounded-2xl bg-[#0f0f0f] border border-white/10 flex items-center justify-center text-[#F47174]">
                   <Mail className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Email Us</h4>
-                  <a href="mailto:contact@ptsc.knit.ac.in" className="text-sm font-bold text-white hover:text-[#F47174] transition-colors mt-0.5 block">
-                    contact@ptsc.knit.ac.in
+                  <h4 className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                    Email Us
+                  </h4>
+                  <a
+                    href="mailto:programming.club@knit.ac.in"
+                    className="text-sm font-bold text-white hover:text-[#F47174] transition-colors mt-0.5 block"
+                  >
+                    programming.club@knit.ac.in
                   </a>
                 </div>
               </div>
@@ -94,8 +96,13 @@ export function ContactSection() {
                   <MessageSquare className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Join Discord</h4>
-                  <a href="#" className="text-sm font-bold text-white hover:text-[#00F0FF] transition-colors mt-0.5 block">
+                  <h4 className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                    Join Discord
+                  </h4>
+                  <a
+                    href="#"
+                    className="text-sm font-bold text-white hover:text-[#00F0FF] transition-colors mt-0.5 block"
+                  >
                     discord.gg/ptsc-knit
                   </a>
                 </div>
@@ -106,7 +113,9 @@ export function ContactSection() {
                   <MapPin className="size-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Location</h4>
+                  <h4 className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                    Location
+                  </h4>
                   <span className="text-sm font-bold text-white mt-0.5 block">
                     KNIT Sultanpur, UP, India
                   </span>
@@ -117,10 +126,15 @@ export function ContactSection() {
 
           {/* Form Side */}
           <div className="lg:col-span-7">
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-6 p-8 sm:p-10 rounded-[2.5rem] bg-[#140D26]/60 border-2 border-white/10 backdrop-blur-md relative z-10 shadow-2xl">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="space-y-6 p-8 sm:p-10 rounded-[2.5rem] bg-[#0f0f0f] border-2 border-white/10 backdrop-blur-md relative z-10 shadow-2xl"
+            >
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Your Name</label>
+                  <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     required
@@ -129,7 +143,9 @@ export function ContactSection() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Email Address</label>
+                  <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     required
@@ -140,7 +156,9 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Subject</label>
+                <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                  Subject
+                </label>
                 <input
                   type="text"
                   required
@@ -150,7 +168,9 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">Message</label>
+                <label className="text-xs font-bold text-[#8C93B0] uppercase tracking-wider">
+                  Message
+                </label>
                 <textarea
                   rows={4}
                   required
@@ -167,7 +187,6 @@ export function ContactSection() {
               </button>
             </form>
           </div>
-
         </div>
       </div>
     </section>

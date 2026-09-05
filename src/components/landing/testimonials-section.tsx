@@ -36,12 +36,11 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative bg-transparent py-32 selection:bg-[#F47174]/30 overflow-hidden"
+      className="relative bg-transparent py-32 bg-zinc-950 overflow-hidden"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
-        <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] rounded-full bg-[#F47174]/10 blur-[130px]" />
-        <div className="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] rounded-full bg-[#8C52FF]/10 blur-[130px]" />
+        <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] rounded-full bg-zinc-950 blur-[130px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
@@ -65,7 +64,7 @@ export function TestimonialsSection() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className="group relative rounded-[2rem] border-2 border-white/10 bg-[#140D26]/60 p-8 transition-all duration-500 hover:border-[#F47174]/50 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(244,113,116,0.15)] flex flex-col justify-between"
+              className="group relative rounded-[2rem] border-2 border-white/10 bg-[#0f0f0f] p-8 transition-all duration-500 hover:scale-[1.05]  flex flex-col justify-between"
             >
               {/* Quote bubble decor */}
               <div className="absolute top-6 right-8 text-7xl font-serif text-white/5 pointer-events-none">
