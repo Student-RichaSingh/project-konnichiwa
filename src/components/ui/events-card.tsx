@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { EventItem } from "@/lib/events";
+import { getEventDynamicStatus } from "@/lib/event-status";
 import Link from "next/link";
 
 interface Card5Props {

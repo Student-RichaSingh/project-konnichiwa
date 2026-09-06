@@ -248,8 +248,6 @@ export function EventsPageContent({
                       </span>
                     </div>
                   )}
-                </div>
-
                   {/* Top Badges */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
                     <span className="rounded bg-[#F47174] px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white shadow-md">
@@ -383,12 +381,17 @@ export function EventsPageContent({
                   href={`/events/${event.slug || event._id}`}
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-white shrink-0"
                 >
-                  Clear Search
-                </button>
-              )}
-            </div>
-          )}
-        </div>
+                  View Details
+                  <FiArrowRight className="size-3.5" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-white/10 bg-[#121528] p-10 text-center text-sm font-mono text-[#8C93B0]">
+            No past events found.
+          </div>
+        )}
       </div>
     </div>
   );

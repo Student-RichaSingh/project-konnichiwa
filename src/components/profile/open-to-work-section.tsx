@@ -90,7 +90,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
   const showInHireUs = form.watch("showInHireUs");
 
   return (
-    <form onSubmit={handleSave} className="space-y-6 font-sans">
+    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 font-sans">
       {/* Top Banner Box */}
       <div className="p-5 rounded-2xl bg-[#0B0D19] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
@@ -141,8 +141,6 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
               </label>
             )}
           />
-          <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#F47174]"></div>
-        </label>
       </div>
 
       {/* Role & Availability Form */}
@@ -155,8 +153,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
             type="text"
             required={showInHireUs}
             placeholder="e.g. Frontend Engineer / Full Stack Developer"
-            value={headlineRole}
-            onChange={(e) => setHeadlineRole(e.target.value)}
+            {...form.register("headlineRole")}
             className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
           />
         </div>
@@ -166,8 +163,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
             Job Availability Type
           </label>
           <select
-            value={availability}
-            onChange={(e) => setAvailability(e.target.value)}
+            {...form.register("availability")}
             className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
           >
             <option value="Internship">Internship</option>
@@ -186,8 +182,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
           <input
             type="text"
             placeholder="e.g. Web Development / Machine Learning"
-            value={domain}
-            onChange={(e) => setDomain(e.target.value)}
+            {...form.register("domain")}
             className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
           />
         </div>
@@ -199,8 +194,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
           <input
             type="text"
             placeholder="e.g. React, Next.js, Node.js, TypeScript"
-            value={skillsInput}
-            onChange={(e) => setSkillsInput(e.target.value)}
+            {...form.register("skillsInput")}
             className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
           />
         </div>
@@ -220,8 +214,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
             <input
               type="text"
               placeholder="https://drive.google.com/..."
-              value={resume}
-              onChange={(e) => setResume(e.target.value)}
+              {...form.register("resume")}
               className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
             />
           </div>
@@ -233,8 +226,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
             <input
               type="text"
               placeholder="https://yourname.dev"
-              value={portfolio}
-              onChange={(e) => setPortfolio(e.target.value)}
+              {...form.register("portfolio")}
               className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
             />
           </div>
@@ -248,8 +240,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
             <input
               type="text"
               placeholder="https://github.com/..."
-              value={github}
-              onChange={(e) => setGithub(e.target.value)}
+              {...form.register("github")}
               className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
             />
           </div>
@@ -261,8 +252,7 @@ export function OpenToWorkSection({ user, onSuccess, onError }: OpenToWorkSectio
             <input
               type="text"
               placeholder="https://linkedin.com/in/..."
-              value={linkedin}
-              onChange={(e) => setLinkedin(e.target.value)}
+              {...form.register("linkedin")}
               className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none focus:border-[#F47174]"
             />
           </div>

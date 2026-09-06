@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { 
   FiGrid, 
   FiCalendar, 
@@ -11,8 +12,11 @@ import {
   FiUsers, 
   FiAward,
   FiUser, 
-  FiLogOut 
+  FiLogOut,
+  FiExternalLink,
+  FiX,
 } from 'react-icons/fi';
+import { useState } from 'react';
 import { UserType } from './types';
 
 type TabType = 'overview' | 'events' | 'registrations' | 'attendance' | 'mail' | 'users' | 'people' | 'profile';
@@ -32,6 +36,8 @@ export function AdminSidebar({
   adminUser,
   onLogout,
 }: AdminSidebarProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const navItems: { id: TabType; label: string; icon: React.ReactNode; badge?: number }[] = [
     { id: 'overview', label: 'Overview', icon: <FiGrid className="size-4" /> },
     { id: 'events', label: 'Events', icon: <FiCalendar className="size-4" /> },

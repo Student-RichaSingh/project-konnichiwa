@@ -19,6 +19,7 @@ import {
   FiExternalLink,
   FiVideo,
   FiFileText,
+  FiLink,
   FiShield,
   FiAward,
   FiCheckCircle

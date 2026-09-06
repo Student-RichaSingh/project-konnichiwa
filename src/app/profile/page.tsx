@@ -437,7 +437,7 @@ export default function ProfilePage() {
                 </div>
 
                 {editing ? (
-                  <form onSubmit={handleUpdate} className="space-y-4 font-sans">
+                  <form onSubmit={profileForm.handleSubmit(handleUpdate)} className="space-y-4 font-sans">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="text-[11px] font-bold text-[#8C93B0] uppercase block mb-1">
@@ -446,8 +446,7 @@ export default function ProfilePage() {
                         <input
                           type="text"
                           required
-                          value={firstName}
-                          onChange={(e) => setFirstName(e.target.value)}
+                          {...profileForm.register("firstName")}
                           className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
@@ -458,8 +457,7 @@ export default function ProfilePage() {
                         <input
                           type="text"
                           required
-                          value={lastName}
-                          onChange={(e) => setLastName(e.target.value)}
+                          {...profileForm.register("lastName")}
                           className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
@@ -473,8 +471,7 @@ export default function ProfilePage() {
                         <input
                           type="text"
                           required
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
+                          {...profileForm.register("username")}
                           className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
@@ -485,8 +482,7 @@ export default function ProfilePage() {
                         <input
                           type="tel"
                           required
-                          value={mobile}
-                          onChange={(e) => setMobile(e.target.value)}
+                          {...profileForm.register("mobile")}
                           className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
@@ -500,8 +496,7 @@ export default function ProfilePage() {
                         <input
                           type="text"
                           placeholder="24305"
-                          value={rollNo}
-                          onChange={(e) => setRollNo(e.target.value)}
+                          {...profileForm.register("rollNo")}
                           className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
@@ -512,8 +507,7 @@ export default function ProfilePage() {
                         <input
                           type="url"
                           placeholder="https://example.com/avatar.jpg"
-                          value={imageSrc}
-                          onChange={(e) => setImageSrc(e.target.value)}
+                          {...profileForm.register("imageSrc")}
                           className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                         />
                       </div>
@@ -526,8 +520,7 @@ export default function ProfilePage() {
                       <input
                         type="password"
                         placeholder="••••••••"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        {...profileForm.register("password")}
                         className="w-full bg-[#0B0D19] border border-white/10 rounded-xl py-2.5 px-3.5 text-sm text-white focus:outline-none focus:border-[#F47174]"
                       />
                     </div>
