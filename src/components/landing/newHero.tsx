@@ -40,7 +40,7 @@ export const WordsPullUp = ({
               delay: i * 0.08,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="inline-block relative"
+         className="inline-block relative bg-gradient-to-r from-[#F47174] to-[#E63946] bg-clip-text text-transparent"
             style={{ marginRight: isLast ? 0 : "0.25em" }}
           >
             {word}
@@ -161,14 +161,16 @@ const PrismaHero = () => {
         {/* Hero content */}
         <div className="absolute bottom-0 left-0 right-0 px-4 pb-2 sm:px-6 md:px-10">
           <div className="grid grid-cols-12 items-end gap-4">
-            <div className="col-span-12 lg:col-span-8">
-              <h1
-                className="font-medium leading-[0.85] tracking-[-0.07em] text-[26vw] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw]"
-                style={{ color: "#E1E0CC" }}
-              >
-                <WordsPullUp text="PTSC" />
-              </h1>
-            </div>
+          <div className="col-span-12 lg:col-span-8">
+  <div className="flex flex-col items-start">
+    <h1 className="m-0 p-0 text-8xl font-bold leading-[0.9] tracking-tight sm:text-9xl md:text-[11rem] lg:text-[13rem] xl:text-[15rem]">
+      <span className="text-[#F7F4EF]">PT</span>
+      <span className="bg-gradient-to-r from-[#F47174] to-[#C6283D] bg-clip-text text-transparent">
+        SC
+      </span>
+    </h1>
+  </div>
+</div>
 
             <div className="col-span-12 flex flex-col gap-5 pb-6 lg:col-span-4 lg:pb-10">
               <motion.p
@@ -188,23 +190,18 @@ const PrismaHero = () => {
               </motion.p>
 
               <motion.button
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.7,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="group inline-flex items-center gap-2 self-start rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-medium text-black transition-all hover:gap-3 sm:text-base"
-              >
-                Join the Club
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110 sm:h-10 sm:w-10">
-                  <ArrowRight
-                    className="h-4 w-4"
-                    style={{ color: "#E1E0CC" }}
-                  />
-                </span>
-              </motion.button>
+  initial={{ y: 20, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{
+    duration: 0.8,
+    delay: 0.7,
+    ease: [0.16, 1, 0.3, 1],
+  }}
+  className="inline-flex items-center gap-2 self-start rounded-full border border-white/20 bg-gradient-to-r from-[#D95D67] to-[#A9273A] px-5 py-3 text-sm font-semibold text-[#FFF8F5] shadow-[0_4px_20px_rgba(201,55,75,0.3)] transition-all duration-300 hover:shadow-[0_6px_28px_rgba(201,55,75,0.45)] hover:brightness-110 sm:text-base"
+>
+  <ArrowRight className="size-4" />
+  Join the Club
+</motion.button>
             </div>
           </div>
         </div>
